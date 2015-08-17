@@ -1,5 +1,3 @@
-package SnakeBot;
-
 public abstract class AI {
     
     // An AI should make int variables mySnake and other

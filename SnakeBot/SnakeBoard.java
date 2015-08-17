@@ -1,5 +1,3 @@
-package SnakeBot;
-
 import java.awt.Point;
 import java.util.List;
 import java.util.ArrayList;
@@ -56,7 +54,7 @@ public class SnakeBoard {
     }
     
     private void move(List<Point> player, char direction) {
-        Point pHead = new Point(player.get(0).getX(),player.get(0).getY());
+        Point pHead = new Point((int)player.get(0).getX(), (int)player.get(0).getY());
         switch (direction) {
             case 'U':
                 pHead.translate(0,1);
@@ -73,7 +71,7 @@ public class SnakeBoard {
     }
     
     private boolean isAlive(List<Point> player, int p) {
-        Point pHead = new Point(player.get(0).getX(),player.get(0).getY());
+        Point pHead = new Point((int)player.get(0).getX(), (int)player.get(0).getY());
         int pX = (int) pHead.getX();
         int pY = (int) pHead.getY();
         if (pX==0 || pY==0 || pX==length || pY==height) {
@@ -87,21 +85,19 @@ public class SnakeBoard {
             winner((p==2)?ai1:ai2, "opponent tried to eat his or her head.");
             return false;
         }
-        else {
-            return true;
-        }
+        return true;
     }
     
     private void endMove(List<Point> player, int p) {
-        Point pHead = new Point(player.get(0).getX(),player.get(0).getY());
+        Point pHead = new Point((int)player.get(0).getX(), (int)player.get(0).getY());
         if (pHead.equals(food)) {
             food = newFoodPoint();
             System.out.println("Food:"+food);
         }
-        else if (p==1 && player2.conatins(pHead)) {
+        else if (p==1 && player2.contains(pHead)) {
             player2.subList(player2.indexOf(pHead), player2.size()).clear();
         }
-        else if (p==2 && player1.conatins(pHead)) {
+        else if (p==2 && player1.contains(pHead)) {
             player1.subList(player1.indexOf(pHead), player1.size()).clear();
         }
         else {
