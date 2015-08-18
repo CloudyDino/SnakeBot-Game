@@ -1,9 +1,9 @@
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class SampleAI extends AI {
+public class SampleAI1 extends AI {
     
-    private static final String name = "Sample";
+    private static final String name = "Sample1";
     private static final int mySnake = 1;
     private static final int other = 2;
     
