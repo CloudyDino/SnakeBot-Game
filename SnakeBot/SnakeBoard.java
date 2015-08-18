@@ -25,11 +25,14 @@ public class SnakeBoard {
     
     // Once this is run, game will keep going until it stops
     public void run() {
-        System.out.println("Player1:"+ player1 +" Player2:"+ player2 +" Food:"+ food);
+        char dirc;
+        String ai1Name = ai1.getName();
+        String ai2Name = ai2.getName();
+        System.out.println(ai1Name+":"+ display(player1) +" "+ ai2Name +":"+ display(player2) +" Food:"+ display(food));
         while(true) {
             // Player 1 Turn
-            System.out.println(ai1.getDirection());
-            move(player1, ai1.getDirection());
+            
+            move(player1, dirc = ai1.getDirection());
             if (!isAlive(player1,1)) {
                 return;
             }
@@ -38,11 +41,10 @@ public class SnakeBoard {
                 winner(ai1, "he or she got 10 points.");
                 return;
             }
-            System.out.println("Player1:"+ player1);
+            System.out.println(ai1Name +":"+ dirc +" "+ display(player1));
             
             // Player 2 Turn
-            System.out.println(ai2.getDirection());
-            move(player2, ai2.getDirection());
+            move(player2, dirc = ai2.getDirection());
             if (!isAlive(player2,2)) {
                 return;
             }
@@ -51,7 +53,7 @@ public class SnakeBoard {
                 winner(ai2, "he or she got 10 points.");
                 return;
             }
-            System.out.println("Player2:"+ player2);
+            System.out.println(ai2Name +":"+ dirc +" "+ display(player2));
         }
     }
     
@@ -81,12 +83,16 @@ public class SnakeBoard {
         Point pHead = new Point((int)player.get(0).getX(), (int)player.get(0).getY());
         int pX = (int) pHead.getX();
         int pY = (int) pHead.getY();
-        if (pX==0 || pY==0 || pX==length || pY==height) {
+        if (pX == -1 && pY ==-1) {
+            winner((p==2)?ai1:ai2, "opponent didn't give proper direction.");
+        }
+        else if (pX==0 || pY==0 || pX==length || pY==height) {
             winner((p==2)?ai1:ai2, "opponent ran into a wall.");
             return false;
         }
         else if (player.subList(1, player.size()).contains(pHead)) {
             winner((p==2)?ai1:ai2, "opponent tried to eat himself.");
+            return false;
         }
         else if (player1.get(0).equals(player2.get(0))) {
             winner((p==2)?ai1:ai2, "opponent tried to eat his or her head.");
@@ -99,7 +105,7 @@ public class SnakeBoard {
         Point pHead = new Point((int)player.get(0).getX(), (int)player.get(0).getY());
         if (pHead.equals(food)) {
             food = newFoodPoint();
-            System.out.println("Food:"+food);
+            System.out.println("Food: "+ display(food));
         }
         else if (p==1 && player2.contains(pHead)) {
             player2.subList(player2.indexOf(pHead), player2.size()).clear();
@@ -124,6 +130,20 @@ public class SnakeBoard {
                 romb.setLocation((int) (Math.random()*(length-1) + 1), (int) (Math.random()*(height-1) + 1));
         }
         return romb;
+    }
+    
+    // I don't like the toString method of Point
+    private String display(List<Point> player) {
+        String romb = "[";
+        for (int i=0; i<player.size(); i++) {
+            romb += display(player.get(i)) + " ";
+        }
+        romb = romb.substring(0, romb.length()-1) + "]";
+        return romb;
+    }
+    
+    private String display(Point p) {
+        return "("+ ((int) p.getX()) +","+ ((int) p.getY()) +")";
     }
     
     // Use to get an List of Points for player #p
