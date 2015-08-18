@@ -3,11 +3,11 @@ public abstract class AI {
     // An AI should make int variables mySnake and other
     // Before compiling, if you are player 1, make mySnake = 1 and other = 2
     // Before compiling, if you are player 2, make mySnake = 2 and other = 1
-    // to get the arraylist of your own snake, use board.getSnake(mySnake)
-    // to get the arraylist of your opponent's snake, use board.getSnake(other)
-    // to get length of board, use board.getLength()
-    // to get height of board, use board.getHeight()
-    // to get Point of food, use board.getFood()
+    // to get the arraylist of your own snake, use Game.board.getSnake(mySnake)
+    // to get the arraylist of your opponent's snake, use Game.board.getSnake(other)
+    // to get length of board, use Game.board.getLength()
+    // to get height of board, use Game.board.getHeight()
+    // to get Point of food, use Game.board.getFood()
     
     // returns your bot's name
     abstract String getName();

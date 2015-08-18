@@ -120,7 +120,7 @@ public class SnakeBoard {
     }
     
     // Use to get an List of Points for player #p
-    public List<Point> getSanke(int p) {
+    public List<Point> getSnake(int p) {
         if (p==1) {return player1;}
         else if (p==2) {return player2;}
         else {return null;}
