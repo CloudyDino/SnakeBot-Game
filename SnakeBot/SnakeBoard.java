@@ -28,26 +28,28 @@ public class SnakeBoard {
         System.out.println("Player1:"+ player1 +" Player2:"+ player2 +" Food:"+ food);
         while(true) {
             // Player 1 Turn
+            System.out.println(ai1.getDirection());
             move(player1, ai1.getDirection());
             if (!isAlive(player1,1)) {
-                break;
+                return;
             }
             endMove(player1,1);
             if (player1.size() >= pointsToWin) {
                 winner(ai1, "he or she got 10 points.");
-                break;
+                return;
             }
             System.out.println("Player1:"+ player1);
             
             // Player 2 Turn
+            System.out.println(ai2.getDirection());
             move(player2, ai2.getDirection());
             if (!isAlive(player2,2)) {
-                break;
+                return;
             }
             endMove(player2,2);
             if (player2.size() >= pointsToWin) {
                 winner(ai2, "he or she got 10 points.");
-                break;
+                return;
             }
             System.out.println("Player2:"+ player2);
         }
@@ -58,14 +60,19 @@ public class SnakeBoard {
         switch (direction) {
             case 'U':
                 pHead.translate(0,1);
+                break;
             case 'D':
                 pHead.translate(0,-1);
+                break;
             case 'L':
                 pHead.translate(-1,0);
+                break;
             case 'R':
                 pHead.translate(1,0);
+                break;
             default:
                 pHead.setLocation(-1,-1);
+                break;
         }
         player.add(0, pHead);
     }
@@ -78,7 +85,7 @@ public class SnakeBoard {
             winner((p==2)?ai1:ai2, "opponent ran into a wall.");
             return false;
         }
-        else if (player.subList(0, player.size()).contains(pHead)) {
+        else if (player.subList(1, player.size()).contains(pHead)) {
             winner((p==2)?ai1:ai2, "opponent tried to eat himself.");
         }
         else if (player1.get(0).equals(player2.get(0))) {
