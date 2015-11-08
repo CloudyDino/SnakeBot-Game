@@ -3,13 +3,12 @@ import java.util.ArrayList;
 
 public class SampleAI1 extends AI {
     
-    private static final String name = "Sample1";
-    private static final int mySnake = 1;
-    private static final int other = 2;
+    private static final String NAME = "Sample1";
     
+    public SampleAI1(int i) {
+        super(i);}
     public String getName() {
-        return name;
-    }
+        return NAME;}
     
     public char getDirection() {
         Point yum = Game.board.getFood();

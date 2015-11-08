@@ -1,5 +1,5 @@
 # SnakeBot
-Brookwood High School AI Programming Competition in Java
+Brookwood High School AI Programming Competition
 [Official Website](http://dralias.github.io/SnakeBot-Game/)
 
 ### What is the SnakeBot Game?
@@ -12,9 +12,10 @@ This game is similar to snakes where you try to eat food and grow in length. The
 - A random number generator that has an equal chance of spitting out the number 1 or 2 will be used to determine which team's AI is player 1.
 - A team can be made of up to 3 students. 
 - Make a single java file that contains only one class that extends the abstract class AI.
-- If a team's AI fails to compile, they will be given 2 minutes to fix the problem. If they are unable to fix it, then the other team wins.
+- If a team's AI fails to compile, they will loose and the other team wins.
 - Do not try to modify the board, game, or opponent's AI in any way.
-- Return one of the following characters in the method getDirection(): U,D,L,R. Note that these characters are uppercase. U stands for up which makes your snake head increase in the Y direction. The nth body part will then move to the n-1 spot. If you have eaten food or a snake, then your last piece remains. If you do not return one of those characters, then you will be lose the game.
+- Do not try to access the opponent's AI and figure out what they would do in your situation.
+- Return one of the following characters in the method getDirection(): U,D,L,R. Note that these characters are uppercase. U stands for up which makes your snake head increase in the Y direction. The nth body part will then move to the n-1 spot. If you have eaten food or a snake, then your last piece remains. If you do not return one of those characters, then you will lose the game.
 - Spread the word and help people understand the basics of the game.
 - If you notice a problem or feel like something about the game is unclear, submit an issue via GitHub so that everyone get a fair chance.
 
@@ -22,7 +23,6 @@ This game is similar to snakes where you try to eat food and grow in length. The
 - To get started, download the latest zip file or copy the GitHub repository by using the following command on your Mac or Linux terminal:  
 `$ git clone https://github.com/DrAlias/SnakeBot-Game.git`  
 - Then place your AI and your opponent's AI into the SnakeBot directory which is where the Game, SnakeBoard, and AI .java files are.
-- Modify Game.java and replace constructors with both teams' AIs.
-- Modify teams' AIs' variables to match their player number.
+- Modify Game.java and replace constructors with both teams' AIs and don't forget to insert the player number into the constructor.
 - Compile everything and run by using the following command when in the SnakeBot directory:  
 `$ javac *.java && java Game`
