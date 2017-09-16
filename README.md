@@ -1,6 +1,6 @@
 # SnakeBot
 Brookwood High School AI Programming Competition
-[Official Website](http://dralias.github.io/SnakeBot-Game/)
+[Official Website](http://cloudydino.github.io/SnakeBot-Game/)
 
 ### What is the SnakeBot Game?
 The SnakeBot Game is a single elimination java programming contest created by Amaan Marfatia. The point of the contest is to create an AI to play against other players. This is mainly intended for AP Computer Science students but since it is easy to pick up, anyone in middle school or high school can submit an AI for the competition.
