@@ -1,0 +1,8 @@
+title: Snakebot Game
+description: Brookwood High School AI Programming Competition in Java
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
