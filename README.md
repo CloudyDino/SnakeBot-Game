@@ -1,5 +1,5 @@
 # SnakeBot
-Brookwood High School AI Programming Competition
+Snake AI Programming Competition
 [Official Website](http://cloudydino.github.io/SnakeBot-Game/)
 
 ### What is the SnakeBot Game?
